@@ -172,11 +172,11 @@ def generate_code(request: CodeGeneratorRequest) -> CodeGeneratorResponse:
     # } - output_paths
     # Dont make every directory a package because we use use namespaced pacakges........
 
-    for init_file in init_files:
-        response.file.append(CodeGeneratorResponseFile(name=str(init_file)))
+    # for init_file in init_files:
+    #     response.file.append(CodeGeneratorResponseFile(name=str(init_file)))
 
-    for output_package_name in sorted(output_paths.union(init_files)):
-        print(f"Writing {output_package_name}", file=sys.stderr)
+    # for output_package_name in sorted(output_paths.union(init_files)):
+    #     print(f"Writing {output_package_name}", file=sys.stderr)
 
     return response
 
