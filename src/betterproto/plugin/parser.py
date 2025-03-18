@@ -164,12 +164,13 @@ def generate_code(request: CodeGeneratorRequest) -> CodeGeneratorResponse:
         )
 
     # Make each output directory a package with __init__ file
-    init_files = {
-        directory.joinpath("__init__.py")
-        for path in output_paths
-        for directory in path.parents
-        if not directory.joinpath("__init__.py").exists()
-    } - output_paths
+    # init_files = {
+    #     directory.joinpath("__init__.py")
+    #     for path in output_paths
+    #     for directory in path.parents
+    #     if not directory.joinpath("__init__.py").exists()
+    # } - output_paths
+    # Dont make every directory a package because we use use namespaced pacakges........
 
     for init_file in init_files:
         response.file.append(CodeGeneratorResponseFile(name=str(init_file)))
